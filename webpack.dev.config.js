@@ -1,17 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
-// var cssgrace = require('cssgrace');
-var filterGradient = require('postcss-filter-gradient');
-var atImport = require("postcss-import");
-var postcssUrl = require("postcss-url");
-var nodeModulesPath = path.join(__dirname,'node_modules')
+
 module.exports = {
+	context: path.join(__dirname,'./src/scripts'),
 	entry: {
-		main : path.join(__dirname,"./src/scripts/main.js")
+		main : './main.js'
 	},
 	output: {
 		path: path.join(__dirname,'hot'),
@@ -21,8 +15,9 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.css$/,  loader: 'style-loader!css-loader!postcss-loader' },
-			{ test : /\.jsx?$/ ,loader : 'react-hot!babel?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/},
+			{ test : /\.less$/, loader : 'style-loader!css-loader!postcss-loader!less-loader'},
+			{ test : /\.css$/,  loader : 'style-loader!css-loader' },
+			{ test : /\.jsx?$/, loader : 'react-hot!babel?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/},
 			// { test : /\.jsx?$/ , loader : 'babel-loader' , query:{ presets : ['es2015','react'] } , exclude: /(node_modules|bower_components)/},
 			//如果不超过30000/1024kb,那么就直接采用dataUrl的形式,超过则返回链接,图片会复制到dist目录下
 			{ test: /\.(png|jpg|jpeg|gif)$/, loader: "url-loader?limit=30000" },
@@ -39,12 +34,7 @@ module.exports = {
 	},
 
 	postcss: function () {
-		return [atImport({ onImport : function(files){ files.forEach(this.addDependency); }.bind(this) }), 
-				postcssUrl ,
-				autoprefixer, 
-				precss,
-				// cssgrace,
-				filterGradient];
+		return [require('autoprefixer'),require('postcss-filter-gradient')];
 	},
 	plugins : [ 
 		new webpack.DefinePlugin({
@@ -57,11 +47,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template : 'src/index.html',
 			inject: true
-			// chunks : ['main']
-			// filename: '../index.html',
 		})
 	],
 	debug : true,
 	devtool : '#inline-source-map'
+
 	//devServer 配置在webpack.dev.server.js 中
 };
