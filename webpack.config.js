@@ -33,6 +33,9 @@ module.exports = {
     },
 	plugins : [ 
 		new webpack.optimize.UglifyJsPlugin({
+			compressor: {
+                warnings: false
+            },
 			mangle: {
 				except: ['$super', '$', 'exports', 'require']
 			}
