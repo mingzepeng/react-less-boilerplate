@@ -1,8 +1,8 @@
 require("../styles/style.less")
 require("babel-polyfill");
-import ReactDom from 'react-dom'
-import React from 'react'
-import App from 'scripts/components/app'
+var React = require('react')
+var ReactDom = require('react-dom')
+var App = require('scripts/components/app')
 
 if (process.env.NODE_ENV !== 'production') {
 	console.log('this is dev mode')

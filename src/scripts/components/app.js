@@ -1,5 +1,5 @@
-import React from 'react'
-export default class App extends React.Component {
+var React = require('react')
+class App extends React.Component {
 	render() {
 		return (
 			<div className='app'>
@@ -8,3 +8,4 @@ export default class App extends React.Component {
 		)
 	}
 }
+module.exports = App
