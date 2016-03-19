@@ -28,8 +28,7 @@ new WebpackDevServer(webpack(config), {
     '/api/*' : {
       target : 'http://127.0.0.1:9001'
     }
-  },
-  historyApiFallback: true
+  }
 }).listen(port, function (err) {
   if (err) {
     console.log(err); //eslint-disable-line no-console
