@@ -1,10 +1,9 @@
-var localIp = require('quick-local-ip');
+
 var path = require('path');
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.dev.config');
 var opn = require('opn');
-// var ip = localIp.getLocalIP4();
 var ip = '0.0.0.0';
 var port = 9000;
 
