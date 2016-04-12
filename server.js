@@ -17,11 +17,11 @@ if (typeof config.entry === 'string') {
 }
 
 new WebpackDevServer(webpack(config), {
-  contentBase: path.resolve(__dirname, './src'),
+  contentBase: path.resolve(__dirname, './'),
   hot: true,
   //设置webpack-dev-server启动的时候，bundles的输出的路径，打包的时候这个publicPath没有作用
   publicPath: config.output.publicPath,
-  historyApiFallback: true,
+  historyApiFallback: false,
   // /api/* 会指向  http://127.0.0.1:3000/api/*  如  /api/users 就会指向  http://127.0.0.1:3000/api/users
   proxy : {
     '/api/*' : {
