@@ -2,6 +2,10 @@
 这个脚手架项目专门为webpack+react开发单页应用定制，支持ie8以及其他现代浏览器，并采用less和postcss处理css。
 
 
+### IE8 支持
+将 package.josn.ie8 改为  package.josn 并覆盖原 package.json 文件  
+将 .babelrc.ie8 改为  .babelrc 并覆盖原 .babelrc 文件  
+
 
 ### 开始
 
@@ -11,10 +15,13 @@
 4. `npm start` 启动开发服务器
 5. auto open http://yourIP:9000 (not localhost or 127.0.0.1 , for mobile test)
 
+
+
 ### 内置部件
 webpack集成了对react jsx语法和es2015的支持，由babel实现。关于babel对es2015的支持情况，可以查看babel的相关文档[babel](http://babeljs.io/)
 less预处理器
 postcss 后处理器
+
 
 ### 启动restful测试数据服务器
 `npm start mock` 启动测试数据服务器，数据配置在mock文件夹里，更详细的配置请参考[json-server文档](https://github.com/typicode/json-server)
