@@ -15,25 +15,29 @@
         "semi": [
             1,
             "never"
-        ]
+        ],
+        "no-console": "off"
     },
     "env": {
         "es6": true,
         "browser": true,
-        "node" : true
+        "node" : true,
+        "amd" : true
     },
-    "extends": "eslint:recommended",
+    "extends":[
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parserOptions" :{
+        "ecmaVersion": 6,
+        "sourceType": "module",
         "ecmaFeatures": {
-            "jsx": true,
-            "experimentalObjectRestSpread": true,
-            "modules": true
+            "jsx": true
         }
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["react"],
     "globals": {
-        "__webpack_public_path__": true
+        "__webpack_public_path__": true,
+        "React" : true
     }
 }

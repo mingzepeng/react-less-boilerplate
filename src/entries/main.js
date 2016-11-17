@@ -1,10 +1,10 @@
 require('styles/style.less')
-const React = require('react')
-const ReactDom = require('react-dom')
-const App = require('scripts/components/App')
+import React from 'react'
+import ReactDom from 'react-dom'
+import App from 'scripts/components/App'
 
 if (process.env.NODE_ENV !== 'production') {
-	// console.log('this is dev mode')
+	console.log('this is dev mode')
 }
 
 /*

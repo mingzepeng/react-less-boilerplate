@@ -3,9 +3,8 @@
 
 
 ### IE8 支持
-将 package.josn.ie8 改为  package.josn 并覆盖原 package.json 文件  
-将 .babelrc.ie8 改为  .babelrc 并覆盖原 .babelrc 文件  
-开发过程中，请不要使用 es6 module 写法  
+将  package.josn 中 react 和 react-dom 改为 0.14.0 版本  
+开发过程中，禁止使用 es6 module 写法  
 
 ### 开始
 
