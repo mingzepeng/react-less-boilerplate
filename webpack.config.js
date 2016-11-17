@@ -4,9 +4,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-	context: path.join(__dirname,'./src/scripts'),
+	context: path.join(__dirname,'./src/entries'),
 	entry: {
-		main : './main.js'
+		main : './main.js',
+		commons : ['react','react-dom']
 	},
 	output: {
 		path: path.join(__dirname,'dist'),
@@ -48,7 +49,7 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin("commons", "[name].[hash].bundle.js"),
 		new ExtractTextPlugin("[name].[hash].bundle.css",{allChunks: true}),
 		new HtmlWebpackPlugin({
-			template : 'src/index.html',
+			template : path.join(__dirname,'src/index.html'),
 			inject: true
 		})
 	]

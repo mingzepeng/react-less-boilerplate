@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-	context: path.join(__dirname,'./src/scripts'),
+	context: path.join(__dirname,'./src/entries'),
 	entry: {
 		main : './main.js'
 	},
