@@ -23,15 +23,17 @@
         "node" : true
     },
     "extends": "eslint:recommended",
-    "ecmaFeatures": {
-        "jsx": true,
-        "experimentalObjectRestSpread": true,
-        "modules": true
+    "parserOptions" :{
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true,
+            "modules": true
+        }
     },
     "plugins": [
         "react"
     ],
     "globals": {
-        "__DEBUG__": true
+        "__webpack_public_path__": true
     }
 }
