@@ -29,18 +29,18 @@ module.exports = {
 	resolve : {
 		root : path.resolve('./src')
 	},
-    postcss: function () {
-        return [require('autoprefixer'),require('postcss-filter-gradient')];
-    },
+	postcss: function () {
+		return [require('autoprefixer'),require('postcss-filter-gradient')];
+	},
 	plugins : [ 
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	compressor: {
-  //               warnings: false
-  //           },
-		// 	mangle: {
-		// 		except: ['$super', '$', 'exports', 'require']
-		// 	}
-		// }),
+		new webpack.optimize.UglifyJsPlugin({
+			compressor: {
+				warnings: false
+			},
+			mangle: {
+				except: ['$super', '$', 'exports', 'require']
+			}
+		}),
 		new webpack.DefinePlugin({
 			"process.env" : {
 				NODE_ENV : JSON.stringify("production")
